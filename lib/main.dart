@@ -6,22 +6,23 @@ import 'package:prefusuarios/shared_prefs/user_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = UserPreferences();
-  await prefs.initPrefs();
+  await prefs.setLastPage(HomeScreen.routeName);
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Material App',
+      title: 'Flutter Secure Storage Demo',
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (BuildContext context) => const HomeScreen(),
-        SettingsScreen.routeName: (context) => const SettingsScreen()
+        SettingsScreen.routeName: (BuildContext context) =>
+            const SettingsScreen(),
       },
     );
   }
