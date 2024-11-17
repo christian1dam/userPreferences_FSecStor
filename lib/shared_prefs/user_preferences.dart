@@ -21,7 +21,7 @@ class UserPreferences {
 
   Future<bool> get colorSecundario async {
     String? colorSecundario = await _storage.read(key: 'colorSecundario');
-    return colorSecundario == 'true'; // Valor por defecto: false
+    return colorSecundario == 'true';
   }
 
   Future<void> setColorSecundario(bool value) async {
@@ -29,7 +29,7 @@ class UserPreferences {
   }
 
   Future<String> get nombre async {
-    return await _storage.read(key: 'nombre') ?? ''; // Valor por defecto
+    return await _storage.read(key: 'nombre') ?? '';
   }
 
   Future<void> setNombre(String value) async {

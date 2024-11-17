@@ -25,8 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
           future: prefs.colorSecundario,
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Container(
-                  color: Colors.blue); // Color predeterminado mientras carga
+              return Container(color: Colors.blue);
             }
             return Container(
               color: snapshot.data! ? Colors.teal : Colors.red,

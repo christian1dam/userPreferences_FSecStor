@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Secure Storage Demo',
+      title: 'Flutter Secure Storage',
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (BuildContext context) => const HomeScreen(),

@@ -23,12 +23,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _initializePreferences() async {
-    // Carga las preferencias de forma asíncrona
     final nombre = await prefs.nombre;
     final colorSecundario = await prefs.colorSecundario;
     final genero = await prefs.genero;
 
-    // Inicializa las variables con los valores cargados
     setState(() {
       _textController = TextEditingController(text: nombre);
       _colorSecundario = colorSecundario;
@@ -39,7 +37,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void dispose() {
     _textController
-        .dispose(); // Libera el controlador para evitar fugas de memoria
+        .dispose();
     super.dispose();
   }
 
@@ -62,7 +60,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           const Divider(),
-          // Switch para color secundario
           SwitchListTile(
             value: _colorSecundario,
             title: const Text('Color secundario'),
@@ -73,7 +70,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               await prefs.setColorSecundario(value);
             },
           ),
-          // Radio para género masculino
           RadioListTile(
             value: 1,
             title: const Text('Masculino'),
@@ -85,7 +81,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               await prefs.setGenero(_genero);
             },
           ),
-          // Radio para género femenino
           RadioListTile(
             value: 2,
             title: const Text('Femenino'),
@@ -98,7 +93,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           const Divider(),
-          // TextField para el nombre
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextField(
